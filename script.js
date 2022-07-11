@@ -59,7 +59,6 @@ class App {
   #mapZoomLevel = 13;
   #mapEvent;
   #workouts = [];
-  
 
   constructor() {
     this.getPosition();
@@ -85,7 +84,7 @@ class App {
 
     console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
     const coords = [latitude, longitude];
-    console.log(this);
+
     this.#map = L.map('map').setView(coords, (this.#mapZoomLevel = 13));
 
     L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
@@ -150,7 +149,7 @@ class App {
         !allPositive(distance, duration)
       )
         return alert('inputs must be numbers');
-      workout = new Cycling([lat, lng], distance, duration);
+      workout = new Cycling([lat, lng], distance, duration, elevation);
     }
 
     this.#workouts.push(workout);
